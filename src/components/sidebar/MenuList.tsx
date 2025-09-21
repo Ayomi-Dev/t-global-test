@@ -1,7 +1,7 @@
 "use client"
 
 import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Flex, Link } from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { SideBarData } from '@/datas/SideBarData'
 
 import { usePathname } from 'next/navigation'
@@ -10,7 +10,22 @@ import NextLink from 'next/link'
 
 
 const MenuList = () => {
-    const pathname = usePathname()
+    const pathname = usePathname();
+    const [openIndex, setOpenIndex] = useState<number | number[]>([])
+
+
+    //ensures a parent menu stays collapsed by default if its child is active
+    const activeIndex = useMemo(() => {
+        return SideBarData.findIndex(item => 
+        item.subMenu?.some(menu => menu.path === pathname)
+    )
+    }, [pathname]);
+
+    useEffect(() => {
+        if(activeIndex >= 0){
+            setOpenIndex([activeIndex])
+        }
+    }, [activeIndex])
    
   return (
     <Box
@@ -23,10 +38,16 @@ const MenuList = () => {
         gap={4}
         py={2}
     >
-        <Accordion allowToggle>
-            {SideBarData.map((item, index) => 
-                item.subMenu ? (
-                    <AccordionItem key={index} 
+        {SideBarData.map((item, index) => 
+            item.subMenu ? 
+            
+            (
+                <Accordion allowToggle
+                    index={openIndex} 
+                    onChange={(idx) => setOpenIndex(idx as number | number[])}
+                    key={index}
+                > 
+                    <AccordionItem 
                         width={"100%"}
                         border={"none"} 
                     >
@@ -36,6 +57,7 @@ const MenuList = () => {
                             fontSize={"14px"}
                             fontWeight={"600"}
                             fontStyle={"semibold"}
+                            color={pathname?.startsWith(item?.path || "") ? "#464B50" : "transparent"}
                             >
                             <Flex gap={2}  >
                                 {item.icon}
@@ -43,7 +65,7 @@ const MenuList = () => {
                             </Flex>
                             <AccordionIcon  />
                         </AccordionButton >
-                        
+
 
                         <AccordionPanel>
                             {item.subMenu.map((menu, menuIndex) => (
@@ -53,7 +75,6 @@ const MenuList = () => {
                                     px={7}
                                     bg={pathname === menu.path ? "#E9F5F7" : ""}
                                     color={pathname === menu.path ? "#75C5C1" : "#464B50"}
-                                    
                                 >
                                     <Link as={NextLink} 
                                         href={menu.path || "#"}
@@ -64,33 +85,31 @@ const MenuList = () => {
                             ))}
                         </AccordionPanel>
                     </AccordionItem>
-                    ) :
+                </Accordion> 
+            ) :
 
-                    <Box 
-                        key={index} 
-                        px={4}
-                        py={5}
-                        height={"18px"}
-                        bg={pathname === item.path ? "#e9f5f7" : ""}
-                        color={pathname === item.path ? "#75c5c1" : "#464B50"}
-                        display={"flex"}
-                        alignItems={"center"}
+                <Box 
+                    key={index} 
+                    px={4}
+                    py={5}
+                    height={"18px"}
+                    bg={pathname === item.path ? "#e9f5f7" : ""}
+                    color={pathname === item.path ? "#75c5c1" : "#464B50"}
+                    display={"flex"}
+                    alignItems={"center"}
+                >
+                    <Flex
+                        gap={2}
                     >
-                        <Flex
-                            gap={2}
-                        >
-                            {item.icon}
-
-                            <Link href={item.path} textDecoration={"none"}>
-                                {item.label}
-                            </Link>
-                        </Flex>
-                    </Box>
-            
-            )}
+                        {item.icon}
+                        <Link href={item.path || ""} >
+                            {item.label}
+                        </Link>
+                    </Flex>
+                </Box>
+        )}
 
 
-        </Accordion>
 
         
         

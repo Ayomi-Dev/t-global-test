@@ -19,7 +19,7 @@ export const SideBarData = [
     {
         label: "MKVanBinnen",
         icon: <HiOutlineDocumentText size={20} />,
-        path: 'profile'
+        path: '/profile'
     },
     {
         label: "Document Management",
@@ -71,7 +71,7 @@ export const SideBarData = [
     {
         label: "Phone numbers",
         icon: <BiPhone size={20} />,
-        path: "/phone numbers"
+        path: "/phone"
     },
     {
         label: "My todo protocols",
