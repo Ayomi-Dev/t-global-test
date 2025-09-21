@@ -50,7 +50,7 @@ const TopBar = () => {
       >
         <Flex>
           <IconButton aria-label='search' icon={<SearchNormal size={15} variant='Linear' color={"#464B50"} />} bg={"none"} />
-          <Input placeholder='M91|' border={"none"} />
+          <Input placeholder='M91|' border={"none"} color={"#292D32"} />
         </Flex>
           <IconButton aria-label='close' icon={<CloseCircle size={15} variant='Linear' color={"#464B50"} />} bg={"none"}  />
       </Box>

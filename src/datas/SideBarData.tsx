@@ -1,3 +1,4 @@
+import { Call, Category, Edit, Folder2, Menu, MenuBoard, MessageEdit, Note, NotificationBing, People, Stickynote, TaskSquare } from "iconsax-react";
 import { BiMenu, BiMessageEdit, BiNote, BiNotepad, BiNotification, BiPhone } from "react-icons/bi";
 import { BsFolder, BsGrid } from "react-icons/bs";
 import { HiOutlineDocumentText, HiOutlineUserGroup } from "react-icons/hi";
@@ -13,27 +14,27 @@ export type MenuItem =  {
 export const SideBarData = [
     {
         label: "Home",
-        icon: <BsGrid size={20} />,
+        icon: <Category size={20} variant="Linear" color="#292D32" fontWeight={400} />,
         path: '/'
     },
     {
         label: "MKVanBinnen",
-        icon: <HiOutlineDocumentText size={20} />,
+        icon: <Stickynote size={20} variant="Linear" color="#292D32" />,
         path: '/profile'
     },
     {
         label: "Document Management",
-        icon: <BsFolder size={20} />,
+        icon: <Folder2 size={20} variant="Linear" color="#292D32" />,
         path: '/manage'
     },
     {
         label: "Patient Information",
-        icon: <HiOutlineUserGroup size={20} />,
+        icon: <People size={20} variant="Linear" color="#292D32" />,
         path: '/info'
     },
     {
         label: "Agenda",
-        icon: <BiNotepad size={20} />,
+        icon: <Note size={20} variant="Linear" color="#292D32" />,
         subMenu: [ 
             {
                 label: "News",
@@ -70,32 +71,32 @@ export const SideBarData = [
     },
     {
         label: "Phone numbers",
-        icon: <BiPhone size={20} />,
+        icon: <Call size={20} variant="Linear" color="#292D32" />,
         path: "/phone"
     },
     {
         label: "My todo protocols",
-        icon: <BiNote size={20} />,
+        icon: <TaskSquare size={20} variant="Linear" color="#292D32" />,
         path: "/protocols"
     },
     {
         label: "Notifications",
-        icon: <BiNotification size={20} />,
+        icon: <NotificationBing size={20} variant="Linear" color="#292D32" />,
         path: "/notifications"
     },
     {
         label: "Knowledge Base",
-        icon: <BiMenu size={20} />,
+        icon: <MenuBoard size={20} variant="Linear" color="#292D32" />,
         path: "/base"
     },
     {
         label: "Super Admin",
-        icon: <BiMessageEdit size={20} />,
+        icon: <MessageEdit size={20} variant="Linear" color="#292D32" />,
         path: "/super-admin"
     },
     {
         label: "Admin",
-        icon: <BiMessageEdit size={20} />,
+        icon: <Edit size={20} variant="Linear" color="#292D32" />,
         subMenu: [
             {
                 label: "Agenda",

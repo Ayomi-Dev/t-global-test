@@ -98,14 +98,12 @@ const MenuList = () => {
                     display={"flex"}
                     alignItems={"center"}
                 >
-                    <Flex
-                        gap={2}
-                    >
+                    
+                    <Link href={item.path || ""} display={'flex'} gap={2} >
                         {item.icon}
-                        <Link href={item.path || ""} >
-                            {item.label}
-                        </Link>
-                    </Flex>
+                        {item.label}
+                    </Link>
+                    
                 </Box>
         )}
 
