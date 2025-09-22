@@ -1,9 +1,9 @@
 import { Box, Flex } from '@chakra-ui/react'
 import React from 'react'
 
-import Logo from './sidebar/Logo'
-import MenuList from './sidebar/MenuList'
-import SideFooter from './sidebar/SideFooter'
+import Logo from './Logo'
+import MenuList from './MenuList'
+import SideFooter from './SideFooter'
 
 const SideBar = () => {
   return (

@@ -1,10 +1,10 @@
 
-import SideBar from "@/components/SideBar";
+import SideBar from "@/components/sidebar/SideBar";
 import "./globals.css";
 import Providers from "@/components/Providers";
-import NavBar from "@/components/TopBar";
+import NavBar from "@/components/topbbar/TopBar";
 import { Grid, GridItem } from "@chakra-ui/react";
-import { MainContent } from "@/components/MainContent";
+import { MainContent } from "@/components/main/MainContent";
 
 
 

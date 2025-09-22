@@ -1,3 +1,4 @@
+
 import { Box, Flex, HStack, IconButton, Image, Input, Text } from '@chakra-ui/react'
 import { CloseCircle, Link1, Notification, SearchNormal } from 'iconsax-react';
 import React from 'react'
@@ -46,7 +47,7 @@ const TopBar = () => {
         border={"1px solid #cdd6e9"}
         justifyContent={"space-between"}
         alignItems={"center"}
-        // px={3}
+        
       >
         <Flex>
           <IconButton aria-label='search' icon={<SearchNormal size={15} variant='Linear' color={"#464B50"} />} bg={"none"} />

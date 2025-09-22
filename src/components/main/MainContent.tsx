@@ -1,8 +1,9 @@
 import { Box, Divider } from '@chakra-ui/react'
 
 import React from 'react'
-import TopHeader from './main/TopHeader'
-import TodoSearch from './main/TodoSearch'
+import TopHeader from './TopHeader'
+import TodoSearch from './TodoSearch'
+import TodoTabs from './TodoTabs'
 
 export const MainContent = () => {
   return (
@@ -20,6 +21,8 @@ export const MainContent = () => {
         <Divider my={4} w={"100%"} border={"1px solid #CDD6E9"} borderColor={"#CDD6E9"} />
 
         <TodoSearch />
+
+        <TodoTabs />
     </Box>
   )
 }
