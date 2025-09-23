@@ -17,7 +17,41 @@ const theme = extendTheme({
         body: jakarta.style.fontFamily
     },
     components: {
-        Button
+        Table: {
+            baseStyle: {
+                th: {
+                    textTransform: "none",
+                    fontWeight: 700,
+                },
+                td: {
+                    fontSize: "sm"
+                },
+
+            },
+            variants: {
+                simple: {
+                    tbody: {
+                        tr: {
+                            _odd: { bg: "gray.50"},
+                            _even: { bg: "white"}
+                        },
+                    },
+                    thead: {
+                        th: {
+                            color: "#1A1C1E", 
+                            borderRight:"2px solid #CDD6E999"
+                        }
+                    }
+                },
+            }, 
+            sizes: {
+                md: {
+                    th: { fontSize: "sm", py: 3, px: 4},
+                    td: { fontSize: "sm", py: 3, px: 4}
+                }
+            }
+        },
+        
     }
         
 })
