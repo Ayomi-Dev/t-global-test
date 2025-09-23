@@ -1,2 +1,62 @@
+.chakra-datepicker {
+  border: none !important;
+  width: 100% !important;
+}
 
+.chakra-datepicker .react-datepicker__month-container {
+  width: 100%;
+}
 
+.chakra-datepicker .react-datepicker__header {
+  background: white;
+  border: none;
+  
+}
+
+.chakra-datepicker .react-datepicker__day-names {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 8px;
+}
+
+.chakra-datepicker .react-datepicker__day-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #464B50;
+  width: 32px;
+  line-height: 32px;
+  text-align: center;
+}
+
+.chakra-datepicker .react-datepicker__week {
+  display: flex;
+  justify-content: space-between;
+  margin: 2px 8px;
+}
+
+.chakra-datepicker .react-datepicker__day {
+  font-size: 12px;
+  color: #464B50;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.chakra-datepicker .react-datepicker__day:hover {
+  background: #F1F5FB;
+  cursor: pointer;
+}
+
+.chakra-datepicker .react-datepicker__day--selected,
+.chakra-datepicker .react-datepicker__day--keyboard-selected {
+  color: #fff;
+  border-radius: 8px;
+}
+
+.chakra-datepicker .react-datepicker__day--today {
+  border: 1px solid #7A5AF8;
+  border-radius: 8px;
+}

@@ -1,7 +1,7 @@
-enum TaskStatus {
+export enum TaskStatus {
     TODO = "To Do",
     IN_PROGRESS = "In Progress",
-    COMPLETED = "Completed"
+    COMPLETED = "Complete"
 }
 
 export enum PriorityLabel {
@@ -29,10 +29,10 @@ export interface Task{
     assigneeIds: string[];
     status: TaskStatus;
     description: string;
-    priority: PriorityLabel
+    priority: Priority
     dates: {
-        createdAt: Date;
-        completedAt: Date;
+        createdAt: string;
+        completedAt: string;
     },
     id: string;
 }

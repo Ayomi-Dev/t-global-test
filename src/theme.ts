@@ -1,4 +1,4 @@
-import { defineStyleConfig, extendTheme } from "@chakra-ui/react";
+import { border, defineStyleConfig, extendTheme } from "@chakra-ui/react";
 import { Plus_Jakarta_Sans} from "next/font/google"
 
 const jakarta = Plus_Jakarta_Sans({
@@ -32,22 +32,24 @@ const theme = extendTheme({
                 simple: {
                     tbody: {
                         tr: {
-                            _odd: { bg: "gray.50"},
+                            _odd: { bg: "white"},
                             _even: { bg: "white"}
+                            
                         },
+                        
                     },
                     thead: {
                         th: {
                             color: "#1A1C1E", 
                             borderRight:"2px solid #CDD6E999"
-                        }
+                        },
                     }
                 },
             }, 
             sizes: {
                 md: {
                     th: { fontSize: "sm", py: 3, px: 4},
-                    td: { fontSize: "sm", py: 3, px: 4}
+                    td: { fontSize: "14px", py: 1, px:4, bg: "#fff", }
                 }
             }
         },
