@@ -4,6 +4,7 @@ import React from 'react'
 import TopHeader from './TopHeader'
 import TodoSearch from './TodoSearch'
 import TodoTabs from './TodoTabs'
+import TodoTable from './TodoTable'
 
 export const MainContent = () => {
   return (
@@ -23,6 +24,8 @@ export const MainContent = () => {
         <TodoSearch />
 
         <TodoTabs />
+
+        <TodoTable />
     </Box>
   )
 }
