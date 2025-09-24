@@ -1,6 +1,7 @@
+"use client"
 import { Box, Divider } from '@chakra-ui/react'
 
-import React from 'react'
+import React, { useState } from 'react'
 import TopHeader from './TopHeader'
 import TodoSearch from './TodoSearch'
 import TodoTabs from './TodoTabs'
@@ -8,6 +9,14 @@ import TodoTable from './TodoTable'
 import SortedTasks from './SortedTasks'
 
 export const MainContent = () => {
+  const [view, setView] = useState<boolean>(false);
+
+  const tableView = () => { 
+      setView(false)
+  }
+  const sortedView = () => {
+    setView(true)
+  }
   return (
     <Box 
         bg={"#ffffff"}
@@ -22,13 +31,14 @@ export const MainContent = () => {
 
         <Divider my={4} w={"100%"} border={"1px solid #CDD6E9"} borderColor={"#CDD6E9"} />
 
-        <TodoSearch />
+        <TodoSearch tableView = {tableView} sortedView={sortedView}view={view} />
 
-        {/* <TodoTabs /> */}
+        {!view && <TodoTabs /> }
+        
 
-        {/* <TodoTable />  */}
+        {!view && <TodoTable />   }
 
-        <SortedTasks />
+        {view && <SortedTasks />}
     </Box>
   )
 }
