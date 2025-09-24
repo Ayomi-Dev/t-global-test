@@ -68,6 +68,11 @@ const theme = extendTheme({
                     bg: "none"
                 }
             }
+        },
+        Input: {
+            baseStyle: {
+                _focus: { border: "transparent"}
+            }
         }
         
         

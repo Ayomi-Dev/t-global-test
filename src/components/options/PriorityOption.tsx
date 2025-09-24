@@ -28,9 +28,8 @@ const PriorityOption = ({selected, onChange} : { selected: PriorityLabel | null;
             <MenuButton 
                 bg={"none"} 
                 fontWeight={500} 
-                fontSize={"1rem"} 
+                fontSize={"small"} 
                 color={`${selected ? "#464B50" : "#BAC1CC"}`}
-                _hover={{bg: "none"}}
             >
                 {selected ? priorityConfig[selected].label : "Select Priority"}
             </MenuButton>
@@ -40,7 +39,6 @@ const PriorityOption = ({selected, onChange} : { selected: PriorityLabel | null;
                 borderRadius={"10px"} 
                 bg={"#ffffff"} 
                 py={4}
-                pos={"absolute"} 
             >
                 {Object.values(PriorityLabel).map((option) => (
                     <MenuItem key={option} onClick={() => onChange(option)}  >
