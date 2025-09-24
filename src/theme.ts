@@ -53,6 +53,23 @@ const theme = extendTheme({
                 }
             }
         },
+        Menu: {
+            baseStyle: {
+                item: {
+                    _hover: {
+                        bg: "transparent"
+                    }
+                }
+            }
+        },
+        Button: {
+            baseStyle: {
+                _hover: {
+                    bg: "none"
+                }
+            }
+        }
+        
         
     }
         

@@ -29,7 +29,7 @@ export interface Task{
     assigneeIds: string[];
     status: TaskStatus;
     description: string;
-    priority: Priority
+    priority: PriorityLabel
     dates: {
         createdAt: string;
         completedAt: string;

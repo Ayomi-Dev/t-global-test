@@ -1,7 +1,7 @@
 "use client"
 
 
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import { Task } from "./types";
 import { useDisclosure } from "@chakra-ui/react";
 
@@ -25,6 +25,19 @@ export const TaskContextProvider: React.FC<{children : ReactNode}> = ( {children
     const createTask = (task: Task) => { 
         setTasks(prevTasks => [...prevTasks, task]) //adds a new task to the list
     }
+
+
+    useEffect(() => { //retrieves task data from localstorage
+        const storedTasks = localStorage.getItem("tasks");
+        if(storedTasks){
+            setTasks(JSON.parse(storedTasks))
+        }
+     }, []);
+
+    useEffect(() => { //persists task data into localstorage
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+     }, [tasks])
+
 
 
     const values = {

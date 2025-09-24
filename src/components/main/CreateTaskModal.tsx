@@ -1,18 +1,18 @@
 "use client";
 
 import { useTaskContext } from '@/Context';
-import { Priorities } from '@/datas/PriorityList';
+
 import { Box, Button, Divider, Flex, FormControl, FormLabel, HStack, Image, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Select, Spacer, Text, Textarea, useDisclosure } from '@chakra-ui/react'
 import {  ArrowLeft2, ArrowRight2, Calendar, Flag, ProfileCircle, SearchNormal, Slash, Status, Stickynote, TaskSquare, Timer, Timer1 } from 'iconsax-react';
 import React, { FormEvent, useState } from 'react'
-import { priorityColors } from '@/datas/PriorityList';
 import { Assignees } from '@/datas/AssigneeList';
 import { taskStatus } from '@/datas/Status';
-import { Priority, TaskStatus } from '@/types';
+import { Priority, PriorityLabel, TaskStatus } from '@/types';
 import { formatDate, presets } from '@/datas/Dates';
 import DatePicker from 'react-datepicker';
 import { format } from 'date-fns';
 import "react-datepicker/dist/react-datepicker.css";
+import PriorityOption from '../options/PriorityOption';
 
 
 
@@ -39,7 +39,7 @@ const CreateTaskModal = () => {
     const { isOpen, onClose } = useTaskContext();
     const [name, setName] = useState<string>("");
     const [ assigneeIds, setAssigneeIds] = useState<string[]>([]);
-    const [ priority, setPriority] = useState<Priority | null>(null);
+    const [ priority, setPriority] = useState<PriorityLabel | null>(null);
     const [ description, setDescription] = useState<string>("");
     const [status, setStatus] = useState<string>("")
     const [openPriority, setOpenPriority] = useState<boolean>(false);
@@ -72,15 +72,9 @@ const CreateTaskModal = () => {
         )
     }
 
-    const selectPriority = (priority: Priority) => { //sets the value of the task priority to the value of option selected
-        setPriority(priority);
-        setOpenPriority(false);
-    }
+   
 
-    const clearPriority = () => { //set priority option to defualt value
-        setPriority(null);
-        setOpenPriority(false)
-    }
+    
 
     const toggleStatus = () => {
         setOpenStatus(!openStatus)
@@ -99,7 +93,7 @@ const CreateTaskModal = () => {
             id: Date.now().toString(),
             name,
             assigneeIds,
-            priority: priority as Priority,
+            priority,
             status: status as TaskStatus,
             description,
             dates: {
@@ -110,7 +104,7 @@ const CreateTaskModal = () => {
         createTask(newTask)
 
         setName("")
-        setPriority(null)
+        // setPriority(null)
         setStartDate(null);
         setDescription("");
         setAssigneeIds([]);
@@ -414,78 +408,7 @@ const CreateTaskModal = () => {
                         
                 </FormControl>
 
-                    <FormControl 
-                        display={"flex"} 
-                        justifyContent={"space-between"} 
-                        alignItems={"center"} w={"50%"} 
-                        my={4}
-                        pos={"relative"}
-                    >
-                        <Flex alignItems={"center"} gap={2} color={"#464B50"} >
-                            <Flag 
-                                variant={`${priority ? "Bold" : 'Linear'}`} 
-                                size={15} 
-                                color={`${priority ? priorityColors[priority.label] : '#464B50'}`} />
-                            <FormLabel fontSize={"smaller"} mt={2} >Priority</FormLabel>
-                        </Flex>
-                        <Box pos={"relative"}>
-                            <Text 
-                                bg={"none"} 
-                                fontWeight={500} 
-                                fontSize={"1rem"} 
-                                color={`${priority ? "#464B50" : "#BAC1CC"}`}
-                                cursor={"pointer"}
-                                onClick={togglePriorities}
-                            >
-                                {priority ? priority.label : "Select Priority"}
-                            </Text>
-                            <Box 
-                                border={"1px solid #CDD6E9"} 
-                                w={"190px"} 
-                                h={"250px"} 
-                                borderRadius={"10px"} 
-                                bg={"#ffffff"} 
-                                py={4}
-                                pos={"absolute"}
-                                zIndex={5}
-                                display={`${openPriority ? 'block' : 'none'}`}
-                            >
-                                {Priorities.map((priority, index) => (
-                                    <Flex 
-                                        key={index} 
-                                        alignItems={"center"} 
-                                        gap={2} 
-                                        color={"#464B50"} 
-                                        ml={5} 
-                                        py={1}
-                                        cursor={"pointer"}
-                                        onClick={() => selectPriority(priority)}
-                                    >
-                                        {priority.flag}
-                                        <Text fontSize={"1rem"} >{priority.label}</Text>
-                                    </Flex>
-                                ))}
-
-                                <Divider bg={"#CDD6E9"} mt={5} />
-                                
-                                <Button 
-                                    py={4} 
-                                    px={5}
-                                    bg={"#ffffff"}
-                                    display={"flex"}
-                                    gap={2}
-                                    _hover={{bg: "none"}}
-                                    onClick={clearPriority}
-                                >
-                                    <Slash size={15} variant='Linear' color="#464B50" />
-                                    <Text fontSize={"1rem"} color="#464B50">Clear</Text>
-                                </Button>
-
-                            </Box>
-
-                        </Box>
-
-                    </FormControl>
+                    <PriorityOption selected = {priority} onChange = {setPriority} />
 
                     <FormControl display={"flex"} justifyContent={"space-between"} alignItems={"center"} w={"50%"} my={4}>
                         <Flex alignItems={"center"} gap={2} color={"#464B50"} >
