@@ -6,13 +6,14 @@ import { Box, Button, Divider, Flex, FormControl, FormLabel, HStack, Image, Inpu
 import {  ArrowLeft2, ArrowRight2, Calendar, Flag, ProfileCircle, SearchNormal, Slash, Status, Stickynote, TaskSquare, Timer, Timer1 } from 'iconsax-react';
 import React, { FormEvent, useState } from 'react'
 import { Assignees } from '@/datas/AssigneeList';
-import { taskStatus } from '@/datas/Status';
+
 import { Priority, PriorityLabel, TaskStatus } from '@/types';
 import { formatDate, presets } from '@/datas/Dates';
 import DatePicker from 'react-datepicker';
 import { format } from 'date-fns';
 import "react-datepicker/dist/react-datepicker.css";
 import PriorityOption from '../options/PriorityOption';
+import StatusOption from '../options/StatusOption';
 
 
 
@@ -41,7 +42,7 @@ const CreateTaskModal = () => {
     const [ assigneeIds, setAssigneeIds] = useState<string[]>([]);
     const [ priority, setPriority] = useState<PriorityLabel | null>(null);
     const [ description, setDescription] = useState<string>("");
-    const [status, setStatus] = useState<string>("")
+    const [status, setStatus] = useState<TaskStatus | null>(null)
     const [openPriority, setOpenPriority] = useState<boolean>(false);
     const [openStatus, setOpenStatus] = useState<boolean>(false);
     const [ openAssignees, setOpenAssignees] = useState<boolean>(false);
@@ -94,7 +95,7 @@ const CreateTaskModal = () => {
             name,
             assigneeIds,
             priority,
-            status: status as TaskStatus,
+            status,
             description,
             dates: {
                 createdAt: formatDate(startDate) ,
@@ -108,14 +109,14 @@ const CreateTaskModal = () => {
         setStartDate(null);
         setDescription("");
         setAssigneeIds([]);
-        setStatus("")
+        setStatus(null)
        
     }
 
     
   return (
    
-      <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent maxW={"800px"}>
             <form onSubmit={handleCreateTask} >
@@ -134,61 +135,7 @@ const CreateTaskModal = () => {
                     </FormControl>
 
                         
-                    <FormControl display={"flex"} justifyContent={"space-between"} alignItems={"center"} w={"50%"} my={4}>
-                        <Flex 
-                            alignItems={"center"} 
-                            gap={2} 
-                            color={"#464B50"} 
-                        >
-                            <Status variant='Linear' size={15} color='#464B50' />
-                            <FormLabel fontSize={"smaller"} mt={2} >Status</FormLabel>
-                        </Flex>
-                        <Box pos={"relative"}>
-                            <HStack 
-                                gap={1} 
-                                bg={"#CFB7E8"} 
-                                borderRadius={"6px"} 
-                                px={2} 
-                                py={1}
-                                onClick={toggleStatus}
-                                cursor={"pointer"}
-                            >
-                                <TaskSquare size={15} variant={'Bold' } color={ "#ffff"}  />
-                                <Text fontStyle={"semibold"} fontWeight={600} color={'#ffffff'} px={2} fontSize={"12px"} >
-                                    {status ? status : "To do"}
-                                </Text>
-                            </HStack>
-                            <Box 
-                                pos={"absolute"}
-                                w={"190px"}
-                                h={"152px"}
-                                border={"1px solid #CDD6E9"}
-                                borderRadius={"10px"}
-                                bg={"#ffffff"}
-                                my={2}
-                                zIndex={5}
-                                display={openStatus ? "block" : "none"}
-                            >
-                                { taskStatus.map((stat, index) => (
-                                    <Flex 
-                                        key={index} 
-                                        alignItems={"center"} 
-                                        gap={2} 
-                                        color={"#464B50"} 
-                                        ml={5} 
-                                        py={2}
-                                        cursor={"pointer"}
-                                        fontSize={"14px"}
-                                        onClick={() => selectStatus(stat.label as TaskStatus)}
-                                    >
-                                        {stat.icon}
-                                        <Text fontSize={"1rem"} >{stat.label}</Text>
-                                    </Flex>
-                                ))}
-                            </Box>
-
-                        </Box>
-                    </FormControl>
+                    <StatusOption status = {status} setStatus = {setStatus} />
 
                     <FormControl display={"flex"} justifyContent={"space-between"} alignItems={"center"} w={"50%"} my={4}>
                         <Flex alignItems={"center"} gap={2} color={"#464B50"} >
@@ -350,7 +297,7 @@ const CreateTaskModal = () => {
                                         })
                                     ) 
                                     : 
-                                    (<Text>Selected Assignees</Text>)
+                                    (<Text fontSize={"smaller"}>Selected Assignees</Text>)
                                     
                                 }
                             </Flex>

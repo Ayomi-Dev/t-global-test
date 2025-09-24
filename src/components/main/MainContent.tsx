@@ -5,6 +5,7 @@ import TopHeader from './TopHeader'
 import TodoSearch from './TodoSearch'
 import TodoTabs from './TodoTabs'
 import TodoTable from './TodoTable'
+import SortedTasks from './SortedTasks'
 
 export const MainContent = () => {
   return (
@@ -23,9 +24,11 @@ export const MainContent = () => {
 
         <TodoSearch />
 
-        <TodoTabs />
+        {/* <TodoTabs /> */}
 
-        <TodoTable />
+        {/* <TodoTable />  */}
+
+        <SortedTasks />
     </Box>
   )
 }

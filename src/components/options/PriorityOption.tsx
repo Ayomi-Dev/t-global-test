@@ -25,8 +25,7 @@ const PriorityOption = ({selected, onChange} : { selected: PriorityLabel | null;
             <FormLabel fontSize={"smaller"} mt={2} >Priority</FormLabel>
         </Flex>
         <Menu>
-            <MenuButton
-                as={Button} 
+            <MenuButton 
                 bg={"none"} 
                 fontWeight={500} 
                 fontSize={"1rem"} 

@@ -2,6 +2,7 @@
 
 import { useTaskContext } from "@/Context"
 import { Assignees } from "@/datas/AssigneeList"
+import { priorityConfig } from "@/datas/PriorityList"
 import { Flex, HStack, Image, Table, Tbody, Td, Text, Th, Thead, Tr } from "@chakra-ui/react"
 
 const TodoTable = () => {
@@ -48,8 +49,8 @@ const TodoTable = () => {
               <Td >
                 <Flex justify={"space-between"}>
                   <Flex align={"center"} gap={2}>
-                    {task.priority.flag}
-                    <Text>{task.priority.label}</Text>
+                    {priorityConfig[task.priority].icon}
+                    <Text>{priorityConfig[task.priority].label}</Text>
                   </Flex>
                   <Flex 
                     bg={"#F7F7F7"} 
