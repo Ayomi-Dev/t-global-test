@@ -27,25 +27,6 @@ TypeScript – Strong typing for safer and maintainable code.
 
 LocalStorage – Persist tasks on the client side.
 
-#Project Setup
-
-Clone the repo:
-
-git clone https://github.com/Ayomi-Dev/t-global-test.git
-
-Install dependencies:
-
-npm install
-
-
-#Run the development server:
-
-npm run dev
-
-
-Open in your browser:
-
-http://localhost:3000
 
 📂 Project Structure
 src/
