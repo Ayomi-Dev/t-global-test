@@ -1,6 +1,6 @@
 "use client"
 
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Flex, Link } from '@chakra-ui/react'
+import { Accordion, AccordionButton, AccordionItem, AccordionPanel, Box, Flex, Link } from '@chakra-ui/react'
 import React, { useEffect, useMemo, useState } from 'react'
 import { SideBarData } from '@/datas/SideBarData'
 

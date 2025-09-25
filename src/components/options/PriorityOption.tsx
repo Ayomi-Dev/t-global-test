@@ -1,6 +1,6 @@
 import { priorityConfig } from "@/datas/PriorityList"
 import { PriorityLabel } from "@/types"
-import { Box, Button, Divider, Flex, FormControl, FormLabel, Menu, MenuButton, MenuItem, MenuList, Text } from "@chakra-ui/react"
+import { Flex, FormControl, FormLabel, Menu, MenuButton, MenuItem, MenuList, Text } from "@chakra-ui/react"
 import { Flag, Slash } from "iconsax-react"
 
 

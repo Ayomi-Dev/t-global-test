@@ -1,6 +1,6 @@
 import { statusConfig } from '@/datas/Status'
 import { TaskStatus } from '@/types'
-import { Box, Button, Flex, FormControl, FormLabel, HStack, Menu, MenuButton, MenuItem, MenuList, Text } from '@chakra-ui/react'
+import { Flex, FormControl, FormLabel, HStack, Menu, MenuButton, MenuItem, MenuList, Text } from '@chakra-ui/react'
 import { Status, TaskSquare } from 'iconsax-react'
 import React from 'react'
 

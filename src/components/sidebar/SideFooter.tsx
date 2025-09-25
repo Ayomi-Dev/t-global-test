@@ -1,6 +1,5 @@
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Flex, Heading, IconButton, Image, Text } from '@chakra-ui/react'
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Flex,  IconButton, Image, Text } from '@chakra-ui/react'
 import React from 'react'
-import { BiToggleRight } from 'react-icons/bi'
 import { BsToggle2Off } from 'react-icons/bs'
 
 const SideFooter = () => {
@@ -32,7 +31,7 @@ const SideFooter = () => {
                             src={'/assets/flag.svg'}
                             w={"20px"}
                             h={"20px"}
-                        
+                            alt='flag'
                         />
                         <Text fontSize={"12px"} fontStyle={"semibold"} >
                             English

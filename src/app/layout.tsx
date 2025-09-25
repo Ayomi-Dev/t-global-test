@@ -3,11 +3,9 @@ import SideBar from "@/components/sidebar/SideBar";
 import "./globals.css";
 import Providers from "@/components/Providers";
 import NavBar from "@/components/topbbar/TopBar";
-import { Box, Grid, GridItem } from "@chakra-ui/react";
-import { MainContent } from "@/components/main/MainContent";
+import { Box } from "@chakra-ui/react";
 import { TaskContextProvider } from "@/Context";
 import CreateTaskModal from "@/components/modal/CreateTaskModal";
-import { relative } from "path";
 
 
 

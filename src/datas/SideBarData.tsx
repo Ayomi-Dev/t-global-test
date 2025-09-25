@@ -1,7 +1,4 @@
-import { Call, Category, Edit, Folder2, Menu, MenuBoard, MessageEdit, Note, NotificationBing, People, Stickynote, TaskSquare } from "iconsax-react";
-import { BiMenu, BiMessageEdit, BiNote, BiNotepad, BiNotification, BiPhone } from "react-icons/bi";
-import { BsFolder, BsGrid } from "react-icons/bs";
-import { HiOutlineDocumentText, HiOutlineUserGroup } from "react-icons/hi";
+import { Call, Category, Edit, Folder2, MenuBoard, MessageEdit, Note, NotificationBing, People, Stickynote, TaskSquare } from "iconsax-react";
 
 export type MenuItem =  {
     label: string;

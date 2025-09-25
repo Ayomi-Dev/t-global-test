@@ -3,7 +3,7 @@
 import { useTaskContext } from "@/Context"
 import { Assignees } from "@/datas/AssigneeList"
 import { priorityConfig } from "@/datas/PriorityList"
-import { Box, Button, Flex, HStack, Image, Menu, MenuButton, MenuItem, MenuList, Table, Tbody, Td, Text, Tfoot, Th, Thead, Tr } from "@chakra-ui/react"
+import { Box, Button, Flex, HStack, Image, Menu, MenuButton, MenuItem, MenuList, Table, Tbody, Td, Text, Th, Thead, Tr } from "@chakra-ui/react"
 import { ArrowDown2, ArrowLeft2, ArrowLeft3, ArrowRight2, ArrowRight3, TickCircle } from "iconsax-react"
 
 const TodoTable = () => {
@@ -37,6 +37,7 @@ const TodoTable = () => {
                               w={"20px"} h={"20px"} 
                               borderRadius={"50%"} objectFit={"cover"} 
                               mx={-1}
+                              alt="name"
                           />  
                         )
                     })}

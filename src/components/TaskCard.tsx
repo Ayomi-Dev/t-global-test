@@ -1,8 +1,8 @@
 import { Assignees } from '@/datas/AssigneeList'
 import { priorityConfig } from '@/datas/PriorityList'
 import { Task } from '@/types'
-import { Box, Card, CardBody, CardHeader, Flex, Heading, HStack, Image, Text } from '@chakra-ui/react'
-import { Calendar, Flag, ProfileCircle } from 'iconsax-react'
+import { Card, CardBody, CardHeader, Flex, Heading, HStack, Image, Text } from '@chakra-ui/react'
+import { Calendar,  ProfileCircle } from 'iconsax-react'
 import React from 'react'
 
 const TaskCard = ({task} : {task : Task}) => {
@@ -46,6 +46,7 @@ const TaskCard = ({task} : {task : Task}) => {
                                     w={"20px"}
                                     borderRadius={"50%"}
                                     objectFit={"cover"}
+                                    alt={foundAssignee?.name}
                                 />
                             )
                         })

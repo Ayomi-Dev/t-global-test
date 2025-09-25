@@ -29,7 +29,6 @@ const CreateTaskModal = () => {
     const [ priority, setPriority] = useState<PriorityLabel | null>(null);
     const [ description, setDescription] = useState<string>("");
     const [status, setStatus] = useState<TaskStatus | null>(null)
-    const [startDate, setStartDate] = useState<Date | null>(null);
     const [completedDate, setCompletedDate] = useState<Date | null>(null)
     const [error, setError] = useState("")
     
@@ -67,7 +66,6 @@ const CreateTaskModal = () => {
 
         setName("")
         setPriority(null)
-        setStartDate(null);
         setDescription("");
         setAssigneeIds([]);
         setStatus(null)

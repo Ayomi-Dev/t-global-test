@@ -1,13 +1,18 @@
 import { Input } from "@chakra-ui/react";
 import React from "react";
 
+
+interface DateInputProps {
+  value?: string;
+  onClick?: () => void;
+}
 export const formatDate =(date: Date) => {
     const day = date.getDate().toString().padStart(2, "0");
     const month = (date.getMonth() + 1).toString().padStart(2, "0");
     const year = date.getFullYear()
     return `${day}/${month}/${year}`
 }
-export const dateInput = React.forwardRef<HTMLInputElement, any>(({ value, onClick }, ref) => (
+export const dateInput = React.forwardRef<HTMLInputElement, DateInputProps>(({ value, onClick }, ref) => (
     // just a helper function to allow datepicker use chakra's input as custom input
     <Input
         readOnly
@@ -20,6 +25,7 @@ export const dateInput = React.forwardRef<HTMLInputElement, any>(({ value, onCli
         fontSize={"14px"}
     />
 ));
+dateInput.displayName = "DateInput"
 export const presets = [
     {
         label: "Today", date: new Date() 

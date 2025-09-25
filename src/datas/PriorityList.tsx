@@ -1,4 +1,4 @@
-import { Priority, PriorityLabel } from "@/types";
+import { PriorityLabel } from "@/types";
 import { Flag } from "iconsax-react";
 import React from "react";
 

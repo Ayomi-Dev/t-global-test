@@ -1,10 +1,9 @@
 "use client"
 
 import { useTaskContext } from '@/Context';
-import { Box, Button, Flex, IconButton, Text, useDisclosure } from '@chakra-ui/react';
+import { Box, Button, Flex, IconButton, Text } from '@chakra-ui/react';
 import { AddCircle, ArrowCircleLeft2, Calendar, Sort, ToggleOffCircle } from 'iconsax-react';
 import React from 'react'
-import { BiBorderRadius } from 'react-icons/bi';
 
 const TopHeader = () => {
     const {onOpen} =useTaskContext() //pops up the createTaskModal when called

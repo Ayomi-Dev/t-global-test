@@ -1,32 +1,12 @@
 "use client";
 
 
-import { formatDate, presets } from '@/datas/Dates';
+import { dateInput, formatDate, presets } from '@/datas/Dates';
 import { Box, Button, Flex, FormControl, FormLabel, HStack, Input, Text } from '@chakra-ui/react'
 import { format } from 'date-fns';
 import { ArrowLeft2, ArrowRight2, Calendar, Timer1 } from 'iconsax-react'
 import React, { useState } from 'react'
 import DatePicker from 'react-datepicker'
-
-const dateInput = React.forwardRef<HTMLInputElement, any>(({ value, onClick }, ref) => (
-    // just a helper function to allow datepicker use chakra's input as custom input
-    <Input
-        readOnly
-        onClick={onClick}
-        ref={ref}
-        value={value}
-        placeholder="dd/mm/yyyy"
-        cursor={"pointer"}
-        w={"200px"}
-        fontSize={"14px"}
-        p={0}
-        px={1}
-        border={"none"}
-    />
-));
-dateInput.displayName = "DateInput";
-
-
 
 
 const DateOption = ({completedDate, setCompletedDate} : { completedDate: Date | null, setCompletedDate: React.Dispatch<React.SetStateAction<Date | null>>}) => {

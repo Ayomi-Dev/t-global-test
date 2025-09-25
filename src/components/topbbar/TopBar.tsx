@@ -80,7 +80,7 @@ const TopBar = () => {
               justifyContent={"center"}
               borderRadius={"10px"}
             >
-              <Image src={img.src} h={img.height} w={img.width} />
+              <Image src={img.src} h={img.height} w={img.width} alt='icon' />
             </Box>
           )
             
@@ -172,6 +172,7 @@ const TopBar = () => {
               w={"40px"}
               borderRadius={"50%"}
               objectFit={"cover"}
+              alt='user'
             />
             
             <Text

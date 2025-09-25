@@ -1,4 +1,4 @@
-import { Box, Button, IconButton, Input } from '@chakra-ui/react'
+import { Box, Input } from '@chakra-ui/react'
 import { RowHorizontal, RowVertical, SearchNormal } from 'iconsax-react'
 import React from 'react'
 
