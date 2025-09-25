@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+#Next.js Todo App with Chakra UI
 
-## Getting Started
+This is a Task Management App built with Next.js (App Router) and Chakra UI. The project demonstrates modern React practices, persistent storage, and an accessible UI framework to create a smooth task management experience.
 
-First, run the development server:
+ #Features:
 
-```bash
+Create Task – Add new tasks with details like name, description, assignee, priority, and status.
+
+Complete Task – Mark tasks as complete, updating their status and including them in the complete section.
+
+Task tabs view and status – Navigate tasks by changing views from Table to card version ( To do, In Progress, Completed).
+
+Persistent Storage – Uses localStorage so tasks remain saved even after refreshing the page.
+
+Responsive UI – Powered by Chakra UI’s styled components for consistency and accessibility.
+
+Dynamic State Management  – Real-time updates across components with React ContextAPI
+
+
+#Tech Stack
+
+Next.js 15+ (App Router) – React framework with SSR/SSG support.
+
+Chakra UI v2 – Component library for styling and accessibility.
+
+TypeScript – Strong typing for safer and maintainable code.
+
+LocalStorage – Persist tasks on the client side.
+
+#Project Setup
+
+Clone the repo:
+
+git clone https://github.com/Ayomi-Dev/t-global-test.git
+
+Install dependencies:
+
+npm install
+
+
+#Run the development server:
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open in your browser:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+http://localhost:3000
 
-## Learn More
+📂 Project Structure
+src/
+ ├─ app/              # Next.js App Router pages & layouts
+ │   ├─ layout.tsx    # Root layout with ChakraProvider
+ │   ├─ page.tsx      # main component (task list)
+ │   └─ ...
+ ├─ components/       # Reusable UI components (task form, menu, etc.)
+ ├─ Context/            # Global state management (tasks, completeTask)
 
-To learn more about Next.js, take a look at the following resources:
+ ├─ types/            # TypeScript interfaces & enums
+ └─ datas/            # list for different components
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#Development Notes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The app uses ChakraProvider at the root (layout.tsx).
 
-## Deploy on Vercel
+localStorage is integrated with hydration-safe logic (useEffect) to avoid SSR/CSR mismatches.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
