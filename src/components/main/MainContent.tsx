@@ -22,10 +22,12 @@ export const MainContent = () => {
         bg={"#ffffff"}
         borderRadius={10} 
         minHeight={"calc(100vh - 200px)"}
+        my={3}
+        px={2}
+        py={3}
         width={"95%"}
         mx={"auto"}
-        my={5}
-        p={3}
+        pos={"relative"}
     >
         <TopHeader />
 

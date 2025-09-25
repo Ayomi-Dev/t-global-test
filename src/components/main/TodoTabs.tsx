@@ -1,10 +1,12 @@
 "use client"
+import { useTaskContext } from '@/Context'
 import { Box, Flex, HStack, Text } from '@chakra-ui/react'
 import { Status, TaskSquare, TickCircle } from 'iconsax-react'
 import React, { useState } from 'react'
 
 const TodoTabs = () => {
     const [activeTab, setActiveTab] = useState<string>("todo")
+    const { tasks } = useTaskContext()
 
     const changeTab = (tab: string) => {
         setActiveTab(tab)
@@ -27,7 +29,7 @@ const TodoTabs = () => {
             <Text bg={"#F9F3FF"} p={1} fontSize={"14px"} fontWeight={500} 
                 fontStyle={"medium"} color={"#464B50"} borderRadius={"6px"}
             >
-                (20)
+                ({tasks.filter(task => task.status === "To Do").length})
             </Text>
         </Flex>
 
@@ -46,7 +48,7 @@ const TodoTabs = () => {
             <Text bg={"#FBF4E4"} p={1} fontSize={"14px"} fontWeight={500} 
                 fontStyle={"medium"} color={"#464B50"} borderRadius={"6px"}
             >
-                (18)
+                ({tasks.filter(task => task.status === "In Progress").length})
             </Text>
 
         </Flex>
@@ -66,7 +68,7 @@ const TodoTabs = () => {
             <Text bg={"#E9F5F7"} p={1} fontWeight={500} borderRadius={"6px"}
                 fontStyle={"medium"} color={"#464B50"}
             >
-                (18)
+                ({tasks.filter(task => task.status === "Complete").length})
             </Text>
         </Flex>
         

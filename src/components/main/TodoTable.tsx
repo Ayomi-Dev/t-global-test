@@ -3,28 +3,28 @@
 import { useTaskContext } from "@/Context"
 import { Assignees } from "@/datas/AssigneeList"
 import { priorityConfig } from "@/datas/PriorityList"
-import { Box, Flex, HStack, Image, Table, Tbody, Td, Text, Tfoot, Th, Thead, Tr } from "@chakra-ui/react"
-import { ArrowDown2, ArrowLeft2, ArrowLeft3, ArrowRight2, ArrowRight3 } from "iconsax-react"
+import { Box, Button, Flex, HStack, Image, Menu, MenuButton, MenuItem, MenuList, Table, Tbody, Td, Text, Tfoot, Th, Thead, Tr } from "@chakra-ui/react"
+import { ArrowDown2, ArrowLeft2, ArrowLeft3, ArrowRight2, ArrowRight3, TickCircle } from "iconsax-react"
 
 const TodoTable = () => {
-    const { tasks } = useTaskContext()
+    const { tasks, completeTask } = useTaskContext()
   return (
    <>
-      <Table variant={"simple"} border={"1px solid #CDD6E9"} borderRadius={"10px"}>
-          <Thead bg={"#F7F7F7"} border={"1px solid #CDD6E9"}>
-              <Tr>
-                  <Th >Name</Th>
-                  <Th >Date</Th>
-                  <Th >Assignee</Th>
-                  <Th >Priority</Th>
-              </Tr>
+      <Table variant={"simple"} border={"1px solid #CDD6E9"}  size={"md"}>
+          <Thead bg={"#F7F7F7"} border={"1px solid #CDD6E9"} >
+            <Tr h={'60px'} >
+                <Th >Name</Th>
+                <Th >Date</Th>
+                <Th >Assignee</Th>
+                <Th >Priority</Th>
+            </Tr>
           </Thead>
           <Tbody>
             {tasks.map((task, index) => (
-              <Tr key={index} >
-                <Td>{task.name}</Td>
-                <Td>
-                  {task.dates.createdAt}
+              <Tr key={index} color={"#464B50"} fontSize={"xs"} h={"60px"}   >
+                <Td fontWeight={600}>{task.name}</Td>
+                <Td color={"#464B50"} fontSize={"xs"} fontWeight={"semibold"}>
+                  {task.dates.createdAt} - {` ${task.dates.completedAt}`}
                 </Td>
                 <Td>
                   <HStack>
@@ -51,18 +51,24 @@ const TodoTable = () => {
                   <Flex justify={"space-between"}>
                     <Flex align={"center"} gap={2}>
                       {priorityConfig[task.priority].icon}
-                      <Text>{priorityConfig[task.priority].label}</Text>
+                      <Text  fontWeight={400}>{priorityConfig[task.priority].label}</Text>
                     </Flex>
-                    <Flex 
-                      bg={"#F7F7F7"} 
-                      w={"40px"} 
-                      h={"30px"} 
-                      borderRadius={"6px"}
-                      align={"center"}
-                      justify={"center"}
-                    >
-                      ...
-                    </Flex>
+                    <Menu>
+                      <MenuButton 
+                        as={Button}
+                        bg={"#F7F7F7"}
+                        size={"sm"}
+                        borderRadius={"6px"}
+                      >
+                        ...
+                      </MenuButton>
+                      <MenuList>
+                        <MenuItem  bg={"none"} gap={2} onClick={() => completeTask(task.id)}>
+                          <TickCircle color="green" variant="Bold" size={15} />
+                          <Text fontSize={"xs"}>Mark as complete</Text>
+                        </MenuItem>
+                      </MenuList>
+                    </Menu>
                   </Flex>
                 </Td>
               </Tr>

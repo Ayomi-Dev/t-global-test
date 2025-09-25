@@ -29,7 +29,7 @@ dateInput.displayName = "DateInput";
 
 
 
-const DateOption = ({startDate, setStartDate} : { startDate: Date | null, setStartDate: React.Dispatch<React.SetStateAction<Date | null>>}) => {
+const DateOption = ({completedDate, setCompletedDate} : { completedDate: Date | null, setCompletedDate: React.Dispatch<React.SetStateAction<Date | null>>}) => {
     const [datePanel, setDatePanel] = useState<boolean>(false)
 
     const toggleDatePanel = () => {
@@ -50,7 +50,7 @@ const DateOption = ({startDate, setStartDate} : { startDate: Date | null, setSta
                 onClick={toggleDatePanel}
                 cursor={"pointer"}
             >
-                {startDate ? formatDate(startDate) : "00/00/0000"}
+                {completedDate ? formatDate(completedDate) : "00/00/0000"}
             </Text>
             <Flex 
                 position={"absolute"}
@@ -77,7 +77,7 @@ const DateOption = ({startDate, setStartDate} : { startDate: Date | null, setSta
                             py={2}
                             my={2}
                             cursor={"pointer"}
-                            onClick={() => setStartDate(preset.date)}
+                            onClick={() => setCompletedDate(preset.date)}
                             borderRadius={"6px"}
                             bg={"#ffffff"}
                             color={"#464B50"}
@@ -114,7 +114,7 @@ const DateOption = ({startDate, setStartDate} : { startDate: Date | null, setSta
                         <HStack bg={"#ffffff"} borderRadius={"10px"} w={"50%"} p={1} >
                             <Calendar size={15} variant='Linear' color='#7988A9' />
                             <Text color={"#7988A9"} fontWeight={400} fontSize={"1rem"}>
-                                {startDate ? format(startDate, "dd/mm/yyyy") : "DD/MM/YYYY"}
+                                {completedDate ? format(completedDate, "dd/mm/yyyy") : "DD/MM/YYYY"}
                             </Text>
                         </HStack>
                         <HStack bg={"#ffffff"} borderRadius={"10px"} w={"50%"} p={1}>
@@ -126,11 +126,11 @@ const DateOption = ({startDate, setStartDate} : { startDate: Date | null, setSta
                     <Box display="flex" alignItems="flex-end" justifyContent="center" pb={2}>
                         <DatePicker
                             inline
-                            selected={startDate}
-                            onChange={(date) => setStartDate(date)}
+                            selected={completedDate}
+                            onChange={(date) => setCompletedDate(date)}
                             dateFormat="dd/mm/yyyy"
                             customInput={React.createElement(dateInput)}
-                            popperPlacement="bottom-start"
+                            popperPlacement="bottom"
                             calendarClassName="chakra-datepicker"
                             formatWeekDay={(name) => name.substring(0,3)}
                             renderCustomHeader={({ monthDate, decreaseMonth, increaseMonth }) => (

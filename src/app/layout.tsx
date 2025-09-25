@@ -6,7 +6,8 @@ import NavBar from "@/components/topbbar/TopBar";
 import { Box, Grid, GridItem } from "@chakra-ui/react";
 import { MainContent } from "@/components/main/MainContent";
 import { TaskContextProvider } from "@/Context";
-import CreateTaskModal from "@/components/main/CreateTaskModal";
+import CreateTaskModal from "@/components/modal/CreateTaskModal";
+import { relative } from "path";
 
 
 
@@ -16,31 +17,20 @@ export default function RootLayout({ children,}: Readonly<{children: React.React
       <body >
         <TaskContextProvider>
           <Providers>
-              <Grid 
-                templateColumns={"250px 1fr"} 
-                templateRows={"auto 1fr"}
+              <Box 
                 minHeight={"100vh"}
                 bg={"#f7f7f7"}
+                position={"relative"}
+                display={"flex"}
               >
-                <GridItem 
-                  rowSpan={2}
-                  as={"aside"} 
-                >
-                  <SideBar />
-                </GridItem>
+                <SideBar />
+                
             
-                <GridItem as={"nav"} 
-                  bg={"white"} 
-                  height={"90px"}
-                  shadow={"sm"}
-                > 
+                <Box as={"main"} position={"relative"} w={"80%"} flex={1}  >
                   <NavBar />
-                </GridItem>
-            
-                <GridItem as={"main"} >
-                      {children}
-                </GridItem>
-              </Grid>
+                  {children}
+                </Box>
+              </Box>
               <CreateTaskModal />
           </Providers>
         </TaskContextProvider>

@@ -63,7 +63,7 @@ const MenuList = () => {
                                 {item.icon}
                                 {item.label}
                             </Flex>
-                            <AccordionIcon  />
+                            
                         </AccordionButton >
 
 

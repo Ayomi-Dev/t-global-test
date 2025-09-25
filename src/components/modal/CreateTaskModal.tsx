@@ -6,7 +6,7 @@ import { Button,  Flex,  FormControl,
         FormLabel, Input, Modal,
         ModalBody, ModalCloseButton,
         ModalContent, ModalFooter, 
-        ModalOverlay,  Textarea
+        ModalOverlay,  Text,  Textarea
 } from '@chakra-ui/react'
 import {  Stickynote } from 'iconsax-react';
 import React, { FormEvent, useState } from 'react'
@@ -22,7 +22,7 @@ import DateOption from '../options/DateOption';
 
 
 const CreateTaskModal = () => {
-    const { createTask } = useTaskContext()
+    const { createTask, loading } = useTaskContext()
     const { isOpen, onClose } = useTaskContext();
     const [name, setName] = useState<string>("");
     const [ assigneeIds, setAssigneeIds] = useState<string[]>([]);
@@ -30,6 +30,8 @@ const CreateTaskModal = () => {
     const [ description, setDescription] = useState<string>("");
     const [status, setStatus] = useState<TaskStatus | null>(null)
     const [startDate, setStartDate] = useState<Date | null>(null);
+    const [completedDate, setCompletedDate] = useState<Date | null>(null)
+    const [error, setError] = useState("")
     
 
     const addAssignees = (id: string) => {
@@ -45,8 +47,10 @@ const CreateTaskModal = () => {
     const handleCreateTask = (e: FormEvent) => {
         e.preventDefault()
 
-        if(!name || !priority || !description || !startDate || !status) return
-        
+        if(!name || !priority || !description || !completedDate || !status ) {
+            setError("Please select and fill all options")
+            return
+        }
         const newTask = {
             id: Date.now().toString(),
             name,
@@ -55,8 +59,8 @@ const CreateTaskModal = () => {
             status,
             description,
             dates: {
-                createdAt: formatDate(startDate) ,
-                completedAt: ""
+                createdAt: formatDate(new Date()) ,
+                completedAt: formatDate(completedDate) 
             }
         }
         createTask(newTask) //adds new task to task list
@@ -93,7 +97,7 @@ const CreateTaskModal = () => {
                         
                     <StatusOption status = {status} setStatus = {setStatus} />
 
-                    <DateOption startDate={startDate} setStartDate={setStartDate} />
+                    <DateOption completedDate={completedDate} setCompletedDate={setCompletedDate} />
                 
 
                     <AssigneeOption assigneeIds={assigneeIds} addAssignees={addAssignees} />
@@ -113,19 +117,24 @@ const CreateTaskModal = () => {
                             value={description}
                         ></Textarea>
                     </FormControl>
-
+                    {error && <Text color="red">{error}</Text>}
+                    
                 </ModalBody>
 
                 <ModalFooter>
-                    <Button  type='submit'
-                        mr={3}  color={"#ffffff"}
-                        px={3} 
-                        py={2}
+                    <Button
+                        isLoading={loading}
+                        loadingText="Adding Task..." 
+                        disabled={loading}
+                        type='submit'
+                        color={"#ffffff"}
                         bg={'#75C5C1'} borderRadius={"10px"}
+                        size={"md"}
+                        _hover={{bg: "#75C5C1"}}
                     >
                         Create Task
                     </Button>
-                    
+
                 </ModalFooter>
 
             </form>

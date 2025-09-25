@@ -46,7 +46,7 @@ export const SideBarData = [
             },
             {
                 label: "To-Do",
-                path: "/todos"
+                path: "/"
             },
             {
                 label: "Form Task",

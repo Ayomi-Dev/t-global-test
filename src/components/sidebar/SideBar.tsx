@@ -8,9 +8,10 @@ import SideFooter from './SideFooter'
 const SideBar = () => {
   return (
     <Box
-        position={"relative"}
-        height={"100vh"}
-        width={"100%"}
+        position={"sticky"}
+        top={0}
+        left={0}
+        width={"250px"}
         bg={"#ffffff"}
         borderRight={"1px solid #cdd6e9"}
         overflowY={"auto"}
@@ -22,6 +23,7 @@ const SideBar = () => {
             }
         }
         py={3}
+        zIndex={10}
     >
         <Logo />
 
