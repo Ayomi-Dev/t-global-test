@@ -10,7 +10,7 @@ import DatePicker from 'react-datepicker'
 
 
 const DateOption = ({completedDate, setCompletedDate} : { completedDate: Date | null, setCompletedDate: React.Dispatch<React.SetStateAction<Date | null>>}) => {
-    const [datePanel, setDatePanel] = useState<boolean>(false)
+    const [datePanel, setDatePanel] = useState<boolean>(false);
 
     const toggleDatePanel = () => {
         setDatePanel(!datePanel )
@@ -57,7 +57,10 @@ const DateOption = ({completedDate, setCompletedDate} : { completedDate: Date | 
                             py={2}
                             my={2}
                             cursor={"pointer"}
-                            onClick={() => setCompletedDate(preset.date)}
+                            onClick={() => {
+                                setCompletedDate(preset.date);
+                                toggleDatePanel()
+                            }}
                             borderRadius={"6px"}
                             bg={"#ffffff"}
                             color={"#464B50"}
@@ -94,7 +97,7 @@ const DateOption = ({completedDate, setCompletedDate} : { completedDate: Date | 
                         <HStack bg={"#ffffff"} borderRadius={"10px"} w={"50%"} p={1} >
                             <Calendar size={15} variant='Linear' color='#7988A9' />
                             <Text color={"#7988A9"} fontWeight={400} fontSize={"1rem"}>
-                                {completedDate ? format(completedDate, "dd/mm/yyyy") : "DD/MM/YYYY"}
+                                {completedDate ? formatDate(completedDate) : "DD/MM/YYYY"}
                             </Text>
                         </HStack>
                         <HStack bg={"#ffffff"} borderRadius={"10px"} w={"50%"} p={1}>

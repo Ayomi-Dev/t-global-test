@@ -5,6 +5,7 @@ import { Assignees } from "@/datas/AssigneeList"
 import { priorityConfig } from "@/datas/PriorityList"
 import { Box, Button, Flex, HStack, Image, Menu, MenuButton, MenuItem, MenuList, Table, Tbody, Td, Text, Th, Thead, Tr } from "@chakra-ui/react"
 import { ArrowDown2, ArrowLeft2, ArrowLeft3, ArrowRight2, ArrowRight3, TickCircle } from "iconsax-react"
+import { FaEllipsis } from "react-icons/fa6"
 import { HiOutlineChevronDoubleLeft, HiOutlineChevronDoubleRight } from "react-icons/hi"
 
 const TodoTable = () => {
@@ -37,7 +38,6 @@ const TodoTable = () => {
                           <Image src={matchedAssignee?.image} key={id}
                               w={"20px"} h={"20px"} 
                               borderRadius={"50%"} objectFit={"cover"} 
-                              mx={-1}
                               alt="name"
                           />  
                         )
@@ -61,8 +61,9 @@ const TodoTable = () => {
                         bg={"#F7F7F7"}
                         size={"sm"}
                         borderRadius={"6px"}
+                        color={"gray.500"}
                       >
-                        ...
+                        <FaEllipsis />
                       </MenuButton>
                       <MenuList>
                         <MenuItem  bg={"none"} gap={2} onClick={() => completeTask(task.id)}>

@@ -15,27 +15,9 @@ export default function RootLayout({ children,}: Readonly<{children: React.React
       <body >
         <TaskContextProvider>
           <Providers>
-            <Box
-              as="aside"
-              bg={"#ffffff"}
-              borderRight={"1px solid #cdd6e9"}
-              scrollBehavior={"smooth"}
-              overflow={"auto"}
-              flexShrink={0}
-              w={"250px"}
-              h={"100vh"}
-              sx={
-                {
-                  "::-webkit-scrollbar": {width: "1px"},
-                  "::-webkit-scrollbar-thumb": {background: "#CBD5E0", borderRadius: "14px"}
-                }
-              }
-              py={3}
-            >
 
-                <SideBar />
-            </Box>
-                
+            <SideBar />
+            
             <Flex direction={"column"} h={"100vh"} flex={1} gap={3} >
 
                 <Box 
@@ -65,7 +47,7 @@ export default function RootLayout({ children,}: Readonly<{children: React.React
                 </Box>
             </Flex>
               
-              <CreateTaskModal />
+            <CreateTaskModal />
           </Providers>
         </TaskContextProvider>
       </body>

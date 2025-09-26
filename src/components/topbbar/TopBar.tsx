@@ -1,5 +1,5 @@
 
-import { Box, Flex, HStack, IconButton, Image, Input, Text } from '@chakra-ui/react'
+import { Box, Button, ButtonGroup, Flex, HStack, IconButton, Image, Input, Text } from '@chakra-ui/react'
 import { CloseCircle, Link1, Notification, SearchNormal } from 'iconsax-react';
 import React from 'react'
 import {  FaCaretDown } from 'react-icons/fa';
@@ -29,9 +29,10 @@ const TopBar = () => {
   ]
   return (
     <Flex
-      color={"white"}
-      justifyContent={"center"}
-      w={"100%"}
+      color={"#fff"}
+      justifyContent={"space-between"}
+      w={"95%"}
+      mx={"auto"}
       alignItems={"center"}
       gap={2}
       h={"100%"}
@@ -48,7 +49,7 @@ const TopBar = () => {
         
       >
         <Flex>
-          <IconButton aria-label='search' icon={<SearchNormal size={15} variant='Linear' color={"#464B50"} />} bg={"none"} />
+          <IconButton aria-label='search' icon={<SearchNormal size={15} variant='Linear' color={"#464B50"} />} size={"md"} bg={"none"} />
           <Input placeholder='M91|' border={"none"} color={"#292D32"} />
         </Flex>
           <IconButton aria-label='close' icon={<CloseCircle size={15} variant='Linear' color={"#464B50"} />} bg={"none"}  />
@@ -82,24 +83,22 @@ const TopBar = () => {
         
       </Box>
 
-      <HStack
-        w={"388px"}
-        h={"46px"}
+      <ButtonGroup
         borderRadius={"10px"}
-        border={"1px solid #eef1f9"}
         fontSize={"14px"}
         fontWeight={700}
       >
-        <Text
+        <Button
+          size={"md"}
           p={2}
           borderRadius={"10px"}
           bg={"#41245F"}
           color={"#ffffff"}
-          cursor={"pointer"}
         >
           Melding maken
-        </Text>
-        <Text
+        </Button>
+        <Button
+          size={"md"}
           p={2}
           borderRadius={"10px"}
           bg={"#75C5C1"}
@@ -107,8 +106,9 @@ const TopBar = () => {
           cursor={"pointer"}
         >
           VM
-        </Text>
-        <Text
+        </Button>
+        <Button
+          size={"md"}
           p={2}
           borderRadius={"10px"}
           bg={"#75C5C1"}
@@ -116,8 +116,9 @@ const TopBar = () => {
           cursor={"pointer"}
         >
           LMS
-        </Text>
-        <Text
+        </Button>
+        <Button
+          size={"md"}
           p={2}
           borderRadius={"10px"}
           bg={"#75C5C1"}
@@ -125,8 +126,9 @@ const TopBar = () => {
           cursor={"pointer"}
         >
           BHV
-        </Text>
-        <Text
+        </Button>
+        <Button
+          size={"md"}
           p={2}
           borderRadius={"10px"}
           bg={"#75C5C1"}
@@ -134,20 +136,19 @@ const TopBar = () => {
           cursor={"pointer"}
         >
           DataLek
-        </Text>
-      </HStack>
+        </Button>
+      </ButtonGroup>
 
-      <Box w={"46px"} h={"46px"} borderRadius={"10px"} border={"1px solid #eef1f9"} bg={"#f7f7f7"}>
+      <Box borderRadius={"10px"} border={"1px solid #eef1f9"}>
         <IconButton aria-label='link' icon={<Link1 size={15} variant='Linear' color='#464B50' />} bg={"none"} />
       </Box>
 
       <IconButton 
         aria-label='notification'
-        w={"46px"}
-        h={"46px"}
+        p={3}
         borderRadius={"50%"}
         icon={ <Notification size={15} variant='Outline' color={"#292D32"} /> }
-        bg={"#F7F7F7"}
+        
       />
       
       <Box

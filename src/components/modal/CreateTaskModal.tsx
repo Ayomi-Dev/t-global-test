@@ -68,7 +68,8 @@ const CreateTaskModal = () => {
         setPriority(null)
         setDescription("");
         setAssigneeIds([]);
-        setStatus(null)
+        setStatus(null);
+        setError("");
     }
 
     

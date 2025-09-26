@@ -10,15 +10,15 @@ const Providers = ( {children} : { children: ReactNode}) => {
 
   return ( 
     <ChakraProvider theme={theme}>
-          <Box 
-            bg={"#f7f7f7"} 
-            overflow={"hidden"} 
-            h={"100vh"} 
-            display={'flex'}
-          >
-            { children }
-          </Box>
-        </ChakraProvider> 
+      <Box 
+        bg={"#f7f7f7"} 
+        overflow={"hidden"} 
+        h={"100vh"} 
+        display={'flex'}
+      >
+        { children }
+      </Box>
+    </ChakraProvider> 
     
   )
 }
