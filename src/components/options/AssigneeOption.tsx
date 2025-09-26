@@ -1,5 +1,5 @@
 import { Assignees } from '@/datas/AssigneeList';
-import { Flex, FormControl, FormLabel, Image, Input, Menu, MenuButton, MenuItem, MenuList, Text } from '@chakra-ui/react';
+import { Button, Flex, FormControl, FormLabel, Image, Input, Menu, MenuButton, MenuItem, MenuList, Text } from '@chakra-ui/react';
 import { ProfileCircle, SearchNormal } from 'iconsax-react';
 import React from 'react'
 
@@ -23,7 +23,7 @@ const AssigneeOption = ({assigneeIds, addAssignees} : AssingneeProp) => {
                 color={"#BAC1CC"} 
                 cursor={"pointer"}
             >
-                <Flex>
+                <Button display={"flex"} bg={"none"}>
 
                     {
                         assigneeIds.length > 0 ? 
@@ -34,7 +34,6 @@ const AssigneeOption = ({assigneeIds, addAssignees} : AssingneeProp) => {
                                     <Image src={matchedAssignee?.image} key={id}
                                         w={"24px"} h={"24px"} 
                                         borderRadius={"50%"} objectFit={"cover"} 
-                                        mx={-1}
                                         alt={matchedAssignee?.name}
                                     />  
                                 )
@@ -44,7 +43,7 @@ const AssigneeOption = ({assigneeIds, addAssignees} : AssingneeProp) => {
                         (<Text fontSize={"smaller"}>Selected Assignees</Text>)
                         
                     }
-                </Flex>
+                </Button>
             </MenuButton>
             <MenuList
                 border={"1px solid #CDD6E9"} 

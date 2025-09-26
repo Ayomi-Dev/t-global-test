@@ -1,6 +1,6 @@
 import { priorityConfig } from "@/datas/PriorityList"
 import { PriorityLabel } from "@/types"
-import { Flex, FormControl, FormLabel, Menu, MenuButton, MenuItem, MenuList, Text } from "@chakra-ui/react"
+import { Button, Flex, FormControl, FormLabel, Menu, MenuButton, MenuItem, MenuList, Text } from "@chakra-ui/react"
 import { Flag, Slash } from "iconsax-react"
 
 
@@ -47,7 +47,7 @@ const PriorityOption = ({selected, onChange} : { selected: PriorityLabel | null;
                             alignItems={"center"} 
                             gap={2} 
                             color={"#464B50"} 
-                            ml={5} 
+                            ml={2} 
                             py={1}
                             cursor={"pointer"}
                         >
@@ -57,12 +57,15 @@ const PriorityOption = ({selected, onChange} : { selected: PriorityLabel | null;
                     </MenuItem>
                 ))}
                     <MenuItem 
+                        as={Button}
+                        size={"md"}
                         px={5}
                         bg={"#ffffff"}
                         display={"flex"}
+                        justifyContent={"start"}
                         gap={2}
                         onClick={clearPriority}
-                        
+                        _hover={{bg: "gray.50"}} 
                     >
                         <Slash size={15} variant='Linear' color="#464B50" />
                         <Text fontSize={"1rem"} color="#464B50">Clear</Text>
