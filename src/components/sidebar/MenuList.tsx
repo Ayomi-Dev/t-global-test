@@ -31,7 +31,7 @@ const MenuList = () => {
     <Box
         width={"95%"}
         mx={"auto"}
-        marginTop={"50px"}
+        marginTop={"35px"}
         fontSize={"14px"}
         fontWeight={"600"}
         fontStyle={"semibold"}

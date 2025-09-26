@@ -19,15 +19,9 @@ export const MainContent = () => {
   }
   return (
     <Box 
-        bg={"#ffffff"}
-        borderRadius={10} 
-        minHeight={"calc(100vh - 200px)"}
-        my={3}
-        px={2}
-        py={3}
-        width={"95%"}
-        mx={"auto"}
-        pos={"relative"}
+      borderRadius={10} 
+      py={3}
+      width={"100%"}  
     >
         <TopHeader />
 

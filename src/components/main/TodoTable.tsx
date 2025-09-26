@@ -5,6 +5,7 @@ import { Assignees } from "@/datas/AssigneeList"
 import { priorityConfig } from "@/datas/PriorityList"
 import { Box, Button, Flex, HStack, Image, Menu, MenuButton, MenuItem, MenuList, Table, Tbody, Td, Text, Th, Thead, Tr } from "@chakra-ui/react"
 import { ArrowDown2, ArrowLeft2, ArrowLeft3, ArrowRight2, ArrowRight3, TickCircle } from "iconsax-react"
+import { HiOutlineChevronDoubleLeft, HiOutlineChevronDoubleRight } from "react-icons/hi"
 
 const TodoTable = () => {
     const { tasks, completeTask } = useTaskContext()
@@ -93,7 +94,7 @@ const TodoTable = () => {
           borderRadius={"20px"}
           gap={2}
         >
-          <ArrowLeft3 color="#464B50" variant="Linear" size={10} />
+          <HiOutlineChevronDoubleLeft color="#464B50"  size={10} />
           <ArrowLeft2 color="#464B50" variant="Linear" size={10} />
           <Text bg={"#75C5C1"} w={7} h={7} display={"flex"} alignItems={"center"} justifyContent={"center"} borderRadius={"50%"} fontWeight={"semibold"} fontSize={"13px"} color={"#fff"}>1</Text>
           <Text border={"1px solid #75C5C1"} justifyContent={"center"} w={7} h={7} display={"flex"} alignItems={"center"} borderRadius={"50%"} fontWeight={"semibold"} fontSize={"10px"} color={"#75C5C1"}>2</Text>
@@ -103,7 +104,7 @@ const TodoTable = () => {
           <Text border={"1px solid #75C5C1"} justifyContent={"center"} w={7} h={7} display={"flex"} alignItems={"center"} borderRadius={"50%"} fontWeight={"semibold"} fontSize={"10px"} color={"#75C5C1"}>...</Text>
           <Text border={"1px solid #75C5C1"} justifyContent={"center"} w={7} h={7} display={"flex"} alignItems={"center"} borderRadius={"50%"} fontWeight={"semibold"} fontSize={"10px"} color={"#75C5C1"}>100</Text>
           <ArrowRight2 color="#464B50" variant="Linear" size={10} />
-          <ArrowRight3 color="#464B50" variant="Linear" size={10} />
+          <HiOutlineChevronDoubleRight color="#464B50" size={10} />
         </Box> 
         <HStack m={2}>
           <Text color={"#1A1C1E"} fontWeight={"semibold"} fontSize={"13px"}>

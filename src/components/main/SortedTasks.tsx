@@ -1,5 +1,5 @@
 import { Box, Flex, Grid, GridItem, HStack, Text } from '@chakra-ui/react'
-import { Add, Status, TaskSquare } from 'iconsax-react'
+import { Add, Status, TaskSquare, TickCircle } from 'iconsax-react'
 import React from 'react'
 import TaskCard from '../TaskCard'
 import { useTaskContext } from '@/Context'
@@ -149,7 +149,7 @@ const SortedTasks = () => {
             display={"flex"}
           >
               <HStack px={2} bg={"#fff"} borderRadius={"6px"}>
-                <TaskSquare color="#75C5C1" size={10} variant='Bold'/>
+                <TickCircle color="#75C5C1" size={10} variant='Bold'/>
                 <Text color="#464B50" fontWeight={600} fontSize={"sm"}>
                   Complete
                 </Text>

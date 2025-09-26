@@ -32,15 +32,9 @@ const TopBar = () => {
       color={"white"}
       justifyContent={"center"}
       w={"100%"}
-      mx={"auto"}
-      h={"90px"}
       alignItems={"center"}
       gap={2}
-      pos={"sticky"}
-      top={0}
-      right={0}
-      bg={"#fff"}
-      zIndex={10}
+      h={"100%"}
     >
       <Box 
         display={'flex'}
