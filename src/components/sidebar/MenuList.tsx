@@ -58,8 +58,10 @@ const MenuList = () => {
                             fontWeight={"600"}
                             fontStyle={"semibold"}
                             color={pathname?.startsWith(item?.path || "") ? "#464B50" : "transparent"}
+                            px={4}
+                            mx={1}
                             >
-                            <Flex gap={2}  >
+                            <Flex gap={3}  >
                                 {item.icon}
                                 {item.label}
                             </Flex>
@@ -75,6 +77,7 @@ const MenuList = () => {
                                     px={7}
                                     bg={pathname === menu.path ? "#E9F5F7" : ""}
                                     color={pathname === menu.path ? "#75C5C1" : "#464B50"}
+                                    borderRadius={"10px"}
                                 >
                                     <Link as={NextLink} 
                                         href={menu.path || "#"}
@@ -92,14 +95,18 @@ const MenuList = () => {
                     key={index} 
                     px={4}
                     py={5}
+                    mx={1}
                     height={"18px"}
-                    bg={pathname === item.path ? "#e9f5f7" : ""}
-                    color={pathname === item.path ? "#75c5c1" : "#464B50"}
+                    color={"#464B50"}
                     display={"flex"}
                     alignItems={"center"}
+                    borderRadius={"10px"}
                 >
                     
-                    <Link href={item.path || ""} display={'flex'} gap={2} >
+                    <Link 
+                        href={item.path || ""} 
+                        display={'flex'} gap={3}
+                    >
                         {item.icon}
                         {item.label}
                     </Link>

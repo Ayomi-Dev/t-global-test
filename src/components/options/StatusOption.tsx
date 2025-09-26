@@ -32,7 +32,7 @@ const StatusOption = ({status, setStatus} : {status:TaskStatus | null, setStatus
                     py={2}
                     cursor={"pointer"}
                 >
-                    {status ? statusConfig[status].icon :<TaskSquare size={15} variant={'Bold' } color={ "#ffff"}  />}
+                    {status ? statusConfig[status].icon("#fff") :<TaskSquare size={15} variant={'Bold' } color={ "#ffff"}  />}
                     <Text fontStyle={"semibold"} fontWeight={600} color={'#ffffff'} px={2} fontSize={"12px"} >
                         {status ? status : "To do"}
                     </Text>
@@ -50,7 +50,7 @@ const StatusOption = ({status, setStatus} : {status:TaskStatus | null, setStatus
                                 cursor={"pointer"}
                                 fontSize={"14px"}
                             >
-                                {statusConfig[option].icon}
+                                {statusConfig[option].icon()}
                                 <Text fontSize={"1rem"} >{statusConfig[option].label}</Text>
                             </Flex>
                         </MenuItem>
