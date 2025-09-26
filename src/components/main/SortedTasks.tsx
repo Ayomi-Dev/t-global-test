@@ -1,17 +1,18 @@
-import { Box, Flex, Grid, GridItem, HStack, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, Grid, GridItem, HStack, Text } from '@chakra-ui/react'
 import { Add, Status, TaskSquare, TickCircle } from 'iconsax-react'
 import React from 'react'
-import TaskCard from '../TaskCard'
 import { useTaskContext } from '@/Context'
+import TaskCard from '../TaskCard'
 
 const SortedTasks = () => {
-  const { tasks } = useTaskContext()
+  const { tasks, onOpen } = useTaskContext()
   return (
     <Grid
       templateColumns={"repeat(auto-fit, minmax(250px, 1fr))"}
       w={"100%"}
       gap={2}
-      mt={4}    
+      mt={4}   
+      alignItems={"start"} 
     >
       <GridItem 
         bg={'#f7f7f7'}
@@ -40,9 +41,16 @@ const SortedTasks = () => {
                 ({tasks.filter(task => task.status === 'To Do').length})
               </Text>
           </Box>
-          <Text bg={"#fff"} px={2} py={2} fontSize={"small"} borderRadius={6}>
+          <Button
+            bg={"#fff"} 
+            px={2} 
+            py={2} 
+            fontSize={"small"} 
+            borderRadius={6}
+            onClick={onOpen}
+          >
             <Add variant='Linear' color="#464B50" size={15} />
-          </Text>
+          </Button>
         </Flex>
 
         {tasks
@@ -62,6 +70,7 @@ const SortedTasks = () => {
           gap={2}
           m={1}
           cursor={"pointer"}
+          onClick={onOpen}
         >
           <Add color='#464B50' variant='Linear' size={15} />
           <Text color={"#464B50"} fontWeight={500} fontSize={"small"} >
@@ -99,9 +108,17 @@ const SortedTasks = () => {
                 ({tasks.filter(task => task.status === 'In Progress').length})
               </Text>
           </Box>
-          <Text bg={"#fff"} px={2} py={2} fontSize={"small"} borderRadius={6}>
+          <Button 
+            size={"sm"}
+            bg={"#fff"} 
+            px={2} 
+            py={2} 
+            fontSize={"small"} 
+            borderRadius={6}
+            onClick={onOpen}
+          >
             <Add variant='Linear' color="#464B50" size={15} />
-          </Text>
+          </Button>
         </Flex>
 
         {tasks
@@ -121,6 +138,7 @@ const SortedTasks = () => {
           gap={2}
           m={1}
           cursor={"pointer"}
+          onClick={onOpen}
         >
           <Add color='#464B50' variant='Linear' size={15} />
           <Text color={"#464B50"} fontWeight={500} fontSize={"small"} >
@@ -133,7 +151,7 @@ const SortedTasks = () => {
 
       <GridItem 
         bg={'#f7f7f7'}
-       borderRadius={"6px"}
+        borderRadius={"6px"}
       >
         <Flex 
           px={2}
@@ -159,9 +177,16 @@ const SortedTasks = () => {
               </Text>
           </Box>
 
-          <Text bg={"#fff"} px={2} py={2} fontSize={"small"} borderRadius={6}>
+          <Button 
+            size={"sm"}
+            bg={"#fff"} 
+            px={2} py={2} 
+            fontSize={"small"} 
+            borderRadius={6}
+            onClick={onOpen}
+          >
             <Add variant='Linear' color="#464B50" size={15} />
-          </Text>
+          </Button>
         </Flex>
 
         {tasks
@@ -181,6 +206,7 @@ const SortedTasks = () => {
           gap={2}
           m={1}
           cursor={"pointer"}
+          onClick={onOpen}
         >
           <Add color='#464B50' variant='Linear' size={15} />
           <Text color={"#464B50"} fontWeight={500} fontSize={"small"} >
